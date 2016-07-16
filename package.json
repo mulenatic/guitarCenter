@@ -1,0 +1,32 @@
+{
+  "name": "guitar-center",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mulenatic/guitarCenter.git"
+  },
+  "author": "Thomas Kaczmarek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mulenatic/guitarCenter/issues"
+  },
+  "homepage": "https://github.com/mulenatic/guitarCenter#readme",
+  "dependencies": {
+    "@angular/common": "^2.0.0-rc.4",
+    "@angular/compiler": "^2.0.0-rc.4",
+    "@angular/core": "^2.0.0-rc.4",
+    "@angular/platform-browser": "^2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
+    "bootstrap": "^3.3.6",
+    "express": "^4.14.0",
+    "jquery": "^3.1.0",
+    "serve-static": "^1.11.1",
+    "typings": "^1.3.1",
+    "zone.js": "^0.6.12"
+  }
+}
