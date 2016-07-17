@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <!-- Polyfill for Intl (in Safari) -->
+    <script src="node_modules/intl/dist/Intl.min.js"></script>
+    <script src="node_modules/intl/locale-data/jsonp/de-DE.js"></script>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Angular stuff -->
+    <script src="node_modules/zone.js/dist/zone.min.js"></script>
+    <script src="node_modules/typescript/lib/typescript.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs-config.js"></script>
+    
+
+    <script>
+     System.import("app").catch(function(err) {console.error(err);});
+    </script>
+
+</head>
+<body>
+
+    <h1>Hallo</h1>
+
+</body>
