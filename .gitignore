@@ -35,3 +35,12 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Ignore emacs tilde files
+*~
+
+# Ignore the typings folder
+typings
+
+# Ignore the build folder
+build
