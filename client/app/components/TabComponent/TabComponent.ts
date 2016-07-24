@@ -1,9 +1,13 @@
 import {Component, OnInit, ElementRef} from "@angular/core";
+
+import {TabService} from "../../services/TabService/TabService"
+
 import {VexTab, Artist, Flow} from "node_modules/vextab/releases/vextab-div.js";
 
 @Component({
     selector: "tabComponent",
-    templateUrl: "../../../app/components/TabComponent/TabComponent.html"
+    templateUrl: "../../../app/components/TabComponent/TabComponent.html",
+    providers: [TabService]
 })
 export class TabComponent implements OnInit {
 
@@ -11,7 +15,7 @@ export class TabComponent implements OnInit {
 
     showStandardNotation: boolean = false;
 
-    constructor(private elementRef: ElementRef) { }
+    constructor(private elementRef: ElementRef, private tabService: TabService) { }
 
     ngOnInit() {
 
@@ -44,21 +48,29 @@ export class TabComponent implements OnInit {
             let artist = new Artist(10, 10, tabWidth - 10, { scale: 1.0 });
             let vextab = new VexTab(artist);
 
-            let text1: String = `tabstave notation=${this.showStandardNotation}
-notes =|: :16 1-2-3-4/6  1-2-3-4/5  1-2-3-4/4  1-2-3-4/3 | 1-2-3-4/2 1-2-3-4/1 1-2-3-4/2 1-2-3-4/3 `;
+            let tab: Array<string> = this.tabService.getTab();
 
-            vextab.parse(text1);
+            tab.forEach(line => {
 
-            let text2: String = `tabstave notation=${this.showStandardNotation}
-notes | :16 1-2-3-4/4 1-2-3-4/5 1-2-3-4/6 =:|`;
+                let text1: string = this.getTabHeaderString(this.showStandardNotation).concat(line);
 
-            vextab.parse(text2);
+                vextab.parse(text1);
+            });
+
+
             artist.render(this.renderer);
 
 
         } catch (e) {
             console.log(e);
         }
+
+    }
+
+    getTabHeaderString(isStandardnotationVisible: boolean): string {
+
+        return `tabstave notation=${isStandardnotationVisible}
+`;
 
     }
 
