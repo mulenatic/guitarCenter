@@ -31,7 +31,7 @@ export class TabComponent implements OnInit {
 
     onOrOff(): string {
 
-        return this.showStandardNotation ? "on" : "off";
+        return this.showStandardNotation ? "off" : "on";
 
     }
 
