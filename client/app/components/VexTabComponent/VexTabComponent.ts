@@ -1,13 +1,10 @@
 import {Component, OnInit, ElementRef, Input} from "@angular/core";
 
-import {TabService} from "../../services/TabService/TabService"
-
 import {VexTab, Artist, Flow} from "node_modules/vextab/releases/vextab-div.js";
 
 @Component({
     selector: "vexTabComponent",
-    templateUrl: "../../../app/components/VexTabComponent/VexTabComponent.html",
-    providers: [TabService]
+    templateUrl: "../../../app/components/VexTabComponent/VexTabComponent.html"
 })
 export class VexTabComponent implements OnInit {
 
@@ -21,7 +18,16 @@ export class VexTabComponent implements OnInit {
         this.renderTab();
     };
 
-    constructor(private elementRef: ElementRef, private tabService: TabService) { }
+    private _tab: Array<string> = [""];
+    @Input()
+    set tab(value: Array<string>) {
+        this._tab = value != undefined ? value : ["notes "];
+    }
+    get tab() {
+        return this._tab;
+    }
+
+    constructor(private elementRef: ElementRef) { }
 
     ngOnInit() {
 
@@ -41,9 +47,9 @@ export class VexTabComponent implements OnInit {
             let artist = new Artist(10, 10, tabWidth - 10, { scale: 1.0 });
             let vextab = new VexTab(artist);
 
-            let tab: Array<string> = this.tabService.getTab();
 
-            tab.forEach(line => {
+
+            this.tab.forEach(line => {
 
                 let text1: string = this.getTabHeaderString(this._showStandardNotation).concat(line);
 
