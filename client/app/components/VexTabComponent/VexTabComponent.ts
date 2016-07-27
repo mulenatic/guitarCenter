@@ -18,10 +18,11 @@ export class VexTabComponent implements OnInit {
         this.renderTab();
     };
 
-    private _tab: Array<string> = [""];
+    private _tab: Array<string> = ["notes "];
     @Input()
     set tab(value: Array<string>) {
         this._tab = value != undefined ? value : ["notes "];
+        this.renderTab();
     }
     get tab() {
         return this._tab;

@@ -15,6 +15,11 @@ export class TabComponent {
 
     showStandardNotation: boolean = false;
 
+    private _tab: Array<string> = [];
+    get tab() {
+        return this._tab;
+    }
+
     constructor(private tabService: TabService) { }
 
     toggleShowStandardNotation(): void {
@@ -26,6 +31,12 @@ export class TabComponent {
     onOrOff(): string {
 
         return this.showStandardNotation ? "off" : "on";
+
+    }
+
+    setNextTab(): void {
+
+        this._tab = this.tabService.getTab();
 
     }
 
