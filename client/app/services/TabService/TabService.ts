@@ -1,6 +1,8 @@
+import {Tab} from "../../domain/Tab/Tab";
+
 export class TabService {
 
-    private tabs: Array<Array<string>> = [];
+    private tabs: Array<Tab> = [];
 
     private tabIndex: number;
 
@@ -8,24 +10,23 @@ export class TabService {
 
         this.tabIndex = -1;
 
+        let lines: Array<string> = new Array<string>();
 
-        let tab: Array<string> = new Array<string>();
-
-        tab.push(`notes =|: :16 1-2-3-4/6  1-2-3-4/5  1-2-3-4/4  1-2-3-4/3 | 1-2-3-4/2 1-2-3-4/1 1-2-3-4/2 1-2-3-4/3 `);
-
-
-        tab.push(`notes | :16 1-2-3-4/4 1-2-3-4/5 1-2-3-4/6 =:|`);
-
-        this.tabs.push(tab);
-
-        tab = new Array<string>();
-
-        tab.push(`notes =|: :16 4-3-2-1/6  4-3-2-1/5  4-3-2-1/4  4-3-2-1/3 | 4-3-2-1/2 4-3-2-1/1 4-3-2-1/2 4-3-2-1/3 `);
+        lines.push(`notes =|: :16 1-2-3-4/6  1-2-3-4/5  1-2-3-4/4  1-2-3-4/3 | 1-2-3-4/2 1-2-3-4/1 1-2-3-4/2 1-2-3-4/3 `);
 
 
-        tab.push(`notes | :16 4-3-2-1/4 4-3-2-1/5 4-3-2-1/6 =:|`);
+        lines.push(`notes | :16 1-2-3-4/4 1-2-3-4/5 1-2-3-4/6 =:|`);
 
-        this.tabs.push(tab);
+        this.tabs.push(new Tab("Finger Gym", lines));
+
+        lines = new Array<string>();
+
+        lines.push(`notes =|: :16 4-3-2-1/6  4-3-2-1/5  4-3-2-1/4  4-3-2-1/3 | 4-3-2-1/2 4-3-2-1/1 4-3-2-1/2 4-3-2-1/3 `);
+
+
+        lines.push(`notes | :16 4-3-2-1/4 4-3-2-1/5 4-3-2-1/6 =:|`);
+
+        this.tabs.push(new Tab("Finger Gym", lines));
 
 
     }
@@ -34,7 +35,7 @@ export class TabService {
     getNextTab(): Array<string> {
 
         let tab = this.tabs[++this.tabIndex];
-        return tab;
+        return tab.lines;
 
 
     }
@@ -46,7 +47,7 @@ export class TabService {
     getPreviousTab(): Array<string> {
 
         let tab = this.tabs[--this.tabIndex];
-        return tab;
+        return tab.lines;
 
     }
 
