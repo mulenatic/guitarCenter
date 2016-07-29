@@ -4,6 +4,7 @@ import * as path from "path";
 let app = express();
 
 app.use("/", express.static(path.join(__dirname, "..", "client")));
+app.use("/components", express.static(path.join(__dirname, "..", "client", "app", "components")));
 app.use("/node_modules", express.static(path.join(__dirname, "..", "node_modules")));
 
 const server = app.listen(8000, "localhost", () => {

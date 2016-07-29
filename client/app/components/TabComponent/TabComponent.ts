@@ -1,11 +1,13 @@
-import {Component} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {TabService} from "../../services/TabService/TabService";
 import {VexTabComponent} from "../../components/VexTabComponent/VexTabComponent";
 import {Exercise} from "../../domain/Exercise/Exercise";
 
+import {Subscription} from "rxjs/Subscription";
+
 @Component({
     selector: "tabComponent",
-    templateUrl: "../../../app/components/TabComponent/TabComponent.html",
+    templateUrl: "components/TabComponent/TabComponent.html",
     directives: [VexTabComponent],
     providers: [TabService]
 })
@@ -18,34 +20,22 @@ export class TabComponent {
         return this._exercise;
     }
 
+    private subscription: Subscription;
+
     constructor(private tabService: TabService) {
-        this.setNextTab();
-    }
 
-
-    setNextTab(): void {
-
-        this._exercise = this.tabService.getNextTab();
+        this.tabService.getNextExercise();
 
     }
 
-    hasNextTab(): boolean {
-
-        return this.tabService.hasNext();
-
+    ngOnInit() {
+        this.subscription = this.tabService.newExerciseObservable.subscribe(
+            exercise => this._exercise = exercise
+        );
     }
 
-    setPreviousTab(): void {
-
-        this._exercise = this.tabService.getPreviousTab();
-
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
-
-    hasPreviousTab(): boolean {
-
-        return this.tabService.hasPrevious();
-
-    }
-
 
 };

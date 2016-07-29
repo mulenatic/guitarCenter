@@ -1,3 +1,6 @@
+import {Injectable} from "@angular/core";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+
 import {Exercise} from "../../domain/Exercise/Exercise";
 
 export class TabService {
@@ -5,6 +8,10 @@ export class TabService {
     private tabs: Array<Exercise> = [];
 
     private tabIndex: number;
+
+    private newExerciseBehaviorSubject = new BehaviorSubject<Exercise>(null);
+
+    newExerciseObservable = this.newExerciseBehaviorSubject.asObservable();
 
     constructor() {
 
@@ -32,27 +39,30 @@ export class TabService {
     }
 
 
-    getNextTab(): Exercise {
+    getNextExercise(): Exercise {
 
         let tab = this.tabs[++this.tabIndex];
-        return tab;
+        this.newExerciseBehaviorSubject.next(tab);
 
+        return tab;
 
     }
 
-    hasNext(): boolean {
+    hasNextExercise(): boolean {
         return this.tabIndex < this.tabs.length - 1;
     }
 
-    getPreviousTab(): Exercise {
+    getPreviousExercise(): Exercise {
 
         let tab = this.tabs[--this.tabIndex];
+        this.newExerciseBehaviorSubject.next(tab);
+
         return tab;
 
     }
 
 
-    hasPrevious(): boolean {
+    hasPreviousExercise(): boolean {
         return this.tabIndex > 0;
     }
 
