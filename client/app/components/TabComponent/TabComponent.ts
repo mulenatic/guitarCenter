@@ -23,17 +23,6 @@ export class TabComponent {
         this.setNextTab();
     }
 
-    toggleShowStandardNotation(): void {
-
-        this.showStandardNotation = !this.showStandardNotation;
-
-    }
-
-    onOrOff(): string {
-
-        return this.showStandardNotation ? "off" : "on";
-
-    }
 
     setNextTab(): void {
 

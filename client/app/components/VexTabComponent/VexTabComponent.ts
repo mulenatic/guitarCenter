@@ -8,15 +8,9 @@ import {VexTab, Artist, Flow} from "node_modules/vextab/releases/vextab-div.js";
 })
 export class VexTabComponent implements OnInit {
 
-    renderer: any;
+    private renderer: any;
 
-    private _showStandardNotation: boolean;
-
-    @Input()
-    set showStandardNotation(value: boolean) {
-        this._showStandardNotation = value != undefined ? value : false;
-        this.renderTab();
-    };
+    private _showStandardNotation: boolean = false;
 
     private _tab: Array<string> = ["notes "];
     @Input()
@@ -73,5 +67,19 @@ export class VexTabComponent implements OnInit {
 `;
 
     }
+
+    toggleShowStandardNotation(): void {
+
+        this._showStandardNotation = !this._showStandardNotation;
+        this.renderTab();
+
+    }
+
+    standardNotationButtonText(): string {
+
+        return this._showStandardNotation ? "Hide standard notation" : "Show standard notation ";
+
+    }
+
 
 };
