@@ -4,4 +4,5 @@
 
 <vexTabComponent [showStandardNotation]="showStandardNotation" [tab]="tab"></vexTabComponent>
 
-<button type="button" class="btn btn-primary" (click)="setNextTab()">Next</button>
+<button type="button" class="btn btn-primary" [disabled]="!hasPreviousTab()" (click)="setPreviousTab()" >Previous</button>
+<button type="button" class="btn btn-primary" [disabled]="!hasNextTab()" (click)="setNextTab()" >Next</button>

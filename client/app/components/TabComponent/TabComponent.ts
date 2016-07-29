@@ -36,8 +36,27 @@ export class TabComponent {
 
     setNextTab(): void {
 
-        this._tab = this.tabService.getTab();
+        this._tab = this.tabService.getNextTab();
 
     }
+
+    hasNextTab(): boolean {
+
+        return this.tabService.hasNext();
+
+    }
+
+    setPreviousTab(): void {
+
+        this._tab = this.tabService.getPreviousTab();
+
+    }
+
+    hasPreviousTab(): boolean {
+
+        return this.tabService.hasPrevious();
+
+    }
+
 
 };
