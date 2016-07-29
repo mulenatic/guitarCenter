@@ -2,7 +2,7 @@
 
 <button type="button" class="btn btn-default" (click)="toggleShowStandardNotation()">Turn standard notation {{onOrOff()}}</button>
 
-<vexTabComponent [showStandardNotation]="showStandardNotation" [tab]="tab.lines"></vexTabComponent>
+<vexTabComponent [showStandardNotation]="showStandardNotation" [tab]="exercise.lines"></vexTabComponent>
 
 <button type="button" class="btn btn-primary" [disabled]="!hasPreviousTab()" (click)="setPreviousTab()" >Previous</button>
 <button type="button" class="btn btn-primary" [disabled]="!hasNextTab()" (click)="setNextTab()" >Next</button>

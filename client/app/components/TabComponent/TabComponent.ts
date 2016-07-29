@@ -1,8 +1,7 @@
 import {Component} from "@angular/core";
-
-import {TabService} from "../../services/TabService/TabService"
-
+import {TabService} from "../../services/TabService/TabService";
 import {VexTabComponent} from "../../components/VexTabComponent/VexTabComponent";
+import {Exercise} from "../../domain/Exercise/Exercise";
 
 @Component({
     selector: "tabComponent",
@@ -15,9 +14,9 @@ export class TabComponent {
 
     showStandardNotation: boolean = false;
 
-    private _tab: Array<string> = [];
-    get tab() {
-        return this._tab;
+    private _exercise: Exercise;
+    get exercise() {
+        return this._exercise;
     }
 
     constructor(private tabService: TabService) {
@@ -38,7 +37,7 @@ export class TabComponent {
 
     setNextTab(): void {
 
-        this._tab = this.tabService.getNextTab();
+        this._exercise = this.tabService.getNextTab();
 
     }
 
@@ -50,7 +49,7 @@ export class TabComponent {
 
     setPreviousTab(): void {
 
-        this._tab = this.tabService.getPreviousTab();
+        this._exercise = this.tabService.getPreviousTab();
 
     }
 
