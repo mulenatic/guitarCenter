@@ -1,8 +1,8 @@
-import {Tab} from "../../domain/Tab/Tab";
+import {Exercise} from "../../domain/Exercise/Exercise";
 
 export class TabService {
 
-    private tabs: Array<Tab> = [];
+    private tabs: Array<Exercise> = [];
 
     private tabIndex: number;
 
@@ -17,7 +17,7 @@ export class TabService {
 
         lines.push(`notes | :16 1-2-3-4/4 1-2-3-4/5 1-2-3-4/6 =:|`);
 
-        this.tabs.push(new Tab("Finger Gym", lines));
+        this.tabs.push(new Exercise("Finger Gym", lines, "1a", null));
 
         lines = new Array<string>();
 
@@ -26,16 +26,16 @@ export class TabService {
 
         lines.push(`notes | :16 4-3-2-1/4 4-3-2-1/5 4-3-2-1/6 =:|`);
 
-        this.tabs.push(new Tab("Finger Gym", lines));
+        this.tabs.push(new Exercise("Finger Gym", lines, "1b", "Blabla"));
 
 
     }
 
 
-    getNextTab(): Array<string> {
+    getNextTab(): Exercise {
 
         let tab = this.tabs[++this.tabIndex];
-        return tab.lines;
+        return tab;
 
 
     }
@@ -44,10 +44,10 @@ export class TabService {
         return this.tabIndex < this.tabs.length - 1;
     }
 
-    getPreviousTab(): Array<string> {
+    getPreviousTab(): Exercise {
 
         let tab = this.tabs[--this.tabIndex];
-        return tab.lines;
+        return tab;
 
     }
 

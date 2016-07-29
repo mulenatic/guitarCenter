@@ -20,7 +20,9 @@ export class TabComponent {
         return this._tab;
     }
 
-    constructor(private tabService: TabService) { }
+    constructor(private tabService: TabService) {
+        this.setNextTab();
+    }
 
     toggleShowStandardNotation(): void {
 
