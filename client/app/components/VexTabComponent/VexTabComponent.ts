@@ -39,7 +39,7 @@ export class VexTabComponent implements OnInit {
 
             let tabWidth = this.elementRef.nativeElement.parentElement.parentElement.offsetWidth;
 
-            let artist = new Artist(10, 10, tabWidth - 10, { scale: 1.0 });
+            let artist = new Artist(0, 0, tabWidth - 15, { scale: 1.0 });
             let vextab = new VexTab(artist);
 
 
