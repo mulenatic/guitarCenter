@@ -8,7 +8,6 @@ import {Exercise} from "../../domain/Exercise/Exercise";
     templateUrl: "../../../app/components/TabComponent/TabComponent.html",
     directives: [VexTabComponent],
     providers: [TabService]
-
 })
 export class TabComponent {
 

@@ -1,13 +1,21 @@
-<h2>{{exercise.book != undefined ? exercise.book : "No book title available"}}</h2>
+<div class="col-xs-12" >
 
-<h3>{{exercise.title != undefined ? exercise.title : ""}}</h3>
+    <dl class="dl-horizontal">
+	<dt>Book Title</dt>
+	<dd>{{exercise.book}}</dd>
+	<dt>Exercise Title:</dt>
+	<dd>{{exercise.title}}</dd>
+	<dt>Description</dt>
+	<dd>{{exercise.description}}
+    </dl>
+</div>
 
 
-<vexTabComponent [tab]="exercise.lines"></vexTabComponent>
+    <vexTabComponent [tab]="exercise.lines"></vexTabComponent>
 
-<center>
-    <div class="btn-group" role="group" aria-label="Navigation">
-	<button type="button" class="btn btn-primary" [disabled]="!hasPreviousTab()" (click)="setPreviousTab()" >Previous</button>
-	<button type="button" class="btn btn-primary" [disabled]="!hasNextTab()" (click)="setNextTab()" >Next</button>
-    </div>
-</center>
+    <center>
+	<div class="btn-group" role="group" aria-label="Navigation">
+	    <button type="button" class="btn btn-primary" [disabled]="!hasPreviousTab()" (click)="setPreviousTab()" >Previous</button>
+	    <button type="button" class="btn btn-primary" [disabled]="!hasNextTab()" (click)="setNextTab()" >Next</button>
+	</div>
+    </center>
