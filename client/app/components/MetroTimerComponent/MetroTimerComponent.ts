@@ -14,6 +14,7 @@ import {ExerciseNavigationComponent} from "../../components/ExerciseNavigationCo
 })
 export class MetroTimerComponent implements OnInit {
 
+    startTimestamp: any;
     timestamp: any;
     timerSource: Observable<any>;
     subscription: Subscription;
@@ -26,7 +27,10 @@ export class MetroTimerComponent implements OnInit {
 
     onStart(): void {
 
-        this.subscription = this.timerSource.subscribe(x => { this.timestamp = x.timestamp });
+        this.subscription = this.timerSource.subscribe(x => {
+            this.startTimestamp = this.startTimestamp == undefined ? x.timestamp : this.startTimestamp;
+            this.timestamp = x.timestamp - this.startTimestamp;
+        });
 
     }
 
