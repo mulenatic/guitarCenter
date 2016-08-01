@@ -20,17 +20,25 @@ export class TabComponent {
         return this._exercise;
     }
 
+    set exercise(exercise: Exercise) {
+        this._exercise = exercise;
+    }
+
     private subscription: Subscription;
 
     constructor(private tabService: TabService) {
 
-        this.tabService.getNextExercise();
 
     }
 
     ngOnInit() {
         this.subscription = this.tabService.newExerciseObservable.subscribe(
-            exercise => this._exercise = exercise
+            exercise => {
+                this.exercise = exercise;
+                console.log(`Setting exercise as ${exercise}.`);
+            },
+            err => console.error(err),
+            () => console.log(`TabService Observable has completed.`)
         );
     }
 

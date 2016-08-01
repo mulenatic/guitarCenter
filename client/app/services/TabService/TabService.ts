@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Observable} from "rxjs/Observable";
 
 import {Exercise} from "../../domain/Exercise/Exercise";
 
@@ -9,9 +10,9 @@ export class TabService {
 
     private tabIndex: number;
 
-    private newExerciseBehaviorSubject = new BehaviorSubject<Exercise>(null);
+    private _newExerciseBehaviorSubject: BehaviorSubject<Exercise> = new BehaviorSubject<Exercise>(new Exercise("", [""], "", ""));
 
-    newExerciseObservable = this.newExerciseBehaviorSubject.asObservable();
+    newExerciseObservable: Observable<Exercise> = this._newExerciseBehaviorSubject.asObservable();
 
     constructor() {
 
@@ -42,7 +43,7 @@ export class TabService {
     getNextExercise(): Exercise {
 
         let tab = this.tabs[++this.tabIndex];
-        this.newExerciseBehaviorSubject.next(tab);
+        this._newExerciseBehaviorSubject.next(tab);
 
         return tab;
 
@@ -55,7 +56,7 @@ export class TabService {
     getPreviousExercise(): Exercise {
 
         let tab = this.tabs[--this.tabIndex];
-        this.newExerciseBehaviorSubject.next(tab);
+        this._newExerciseBehaviorSubject.next(tab);
 
         return tab;
 
