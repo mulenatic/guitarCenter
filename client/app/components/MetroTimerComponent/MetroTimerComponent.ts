@@ -8,11 +8,12 @@ import "rxjs/add/operator/timestamp";
 import * as moment from "moment";
 
 import {ExerciseNavigationComponent} from "../../components/ExerciseNavigationComponent/ExerciseNavigationComponent";
+import {MetronomeDot} from "../../components/MetronomeDot/MetronomeDot";
 
 @Component({
     selector: "metroTimerComponent",
     templateUrl: "app/components/MetroTimerComponent/MetroTimerComponent.html",
-    directives: [ExerciseNavigationComponent]
+    directives: [ExerciseNavigationComponent, MetronomeDot]
 })
 export class MetroTimerComponent implements OnInit {
 
@@ -20,6 +21,10 @@ export class MetroTimerComponent implements OnInit {
     duration: moment.Duration = moment.duration(0);
     timerSource: Observable<any>;
     subscription: Subscription;
+
+    counter: number = 0;
+
+    metronomeDotStates: Array<string> = ["inactive", "inactive", "inactive", "inactive"];
 
     ngOnInit() {
 
@@ -32,6 +37,8 @@ export class MetroTimerComponent implements OnInit {
         this.startTimestamp = new Date();
         this.subscription = this.timerSource.subscribe(payload => {
             this.duration = moment.duration(payload.timestamp - this.startTimestamp.getTime());
+
+            this.updateMetronomeDots();
         });
 
     }
@@ -49,6 +56,16 @@ export class MetroTimerComponent implements OnInit {
     addLeadingZero(num: number): string {
 
         return num < 10 ? `0${num}` : `${num}`;
+
+    }
+
+    updateMetronomeDots(): void {
+
+        this.metronomeDotStates[this.counter++] = "active";
+        if (this.counter == 5) {
+            this.counter = 0;
+            this.metronomeDotStates = ["inactive", "inactive", "inactive", "inactive"];
+        }
 
     }
 

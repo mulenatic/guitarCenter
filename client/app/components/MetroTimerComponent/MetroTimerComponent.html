@@ -3,12 +3,32 @@
 	Exercise Control
     </div>
     <div class="panel-body">
-	<div class="well">
-	    <h3>{{getFormattedTime()}}</h3>
-	    <button type="button" class="btn btn-default" (click)="startTimer()">Start timer</button>
-	    <button type="button" class="btn btn-default" (click)="stopTimer()">Stop timer</button>
+	
+	<div class="col-xs-6 col-md-12">
+	    <div class="panel panel-primary">
+		<div class="panel-heading">Time played</div>
+		<div class="panel-body">
+		    <center><h2>{{getFormattedTime()}}</h2></center>
+		<button type="button" class="btn btn-default" (click)="startTimer()">Start timer</button>
+		<button type="button" class="btn btn-default" (click)="stopTimer()">Stop timer</button>
+		</div>
+	    </div>
 	</div>
 	
-	<exerciseNavigationComponent></exerciseNavigationComponent>
+	<div class="col-xs-6 col-md-12">
+	    <div class="panel panel-primary">
+		<div class="panel-heading">Metronome</div>
+		<div class="panel-body">
+		    <metronomeDot  [state]="metronomeDotStates[0]"></metronomeDot>
+		    <metronomeDot  [state]="metronomeDotStates[1]"></metronomeDot>
+		    <metronomeDot  [state]="metronomeDotStates[2]"></metronomeDot>
+		    <metronomeDot  [state]="metronomeDotStates[3]"></metronomeDot>
+		</div>
+	    </div>
+	</div>
+
+	<div class="col-xs-12">
+	    <exerciseNavigationComponent></exerciseNavigationComponent>
+	</div>
     </div>
 </div>
