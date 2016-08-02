@@ -4,9 +4,9 @@
     </div>
     <div class="panel-body">
 	<div class="well">
-	    <h3>{{timestamp}}</h3>
-	    <button type="button" class="btn btn-default" (click)="onStart()">Start timer</button>
-	    <button type="button" class="btn btn-default" (click)="onStop()">Stop timer</button>
+	    <h3>{{getFormattedTime()}}</h3>
+	    <button type="button" class="btn btn-default" (click)="startTimer()">Start timer</button>
+	    <button type="button" class="btn btn-default" (click)="stopTimer()">Stop timer</button>
 	</div>
 	
 	<exerciseNavigationComponent></exerciseNavigationComponent>

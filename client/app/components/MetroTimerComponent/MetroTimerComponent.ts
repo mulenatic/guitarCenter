@@ -5,6 +5,8 @@ import {Subscription} from "rxjs/Subscription";
 import "rxjs/add/observable/timer";
 import "rxjs/add/operator/timestamp";
 
+import * as moment from "moment";
+
 import {ExerciseNavigationComponent} from "../../components/ExerciseNavigationComponent/ExerciseNavigationComponent";
 
 @Component({
@@ -14,8 +16,8 @@ import {ExerciseNavigationComponent} from "../../components/ExerciseNavigationCo
 })
 export class MetroTimerComponent implements OnInit {
 
-    startTimestamp: any;
-    timestamp: any;
+    startTimestamp: Date;
+    duration: moment.Duration = moment.duration(0);
     timerSource: Observable<any>;
     subscription: Subscription;
 
@@ -25,17 +27,29 @@ export class MetroTimerComponent implements OnInit {
 
     }
 
-    onStart(): void {
+    startTimer(): void {
 
-        this.subscription = this.timerSource.subscribe(x => {
-            this.startTimestamp = this.startTimestamp == undefined ? x.timestamp : this.startTimestamp;
-            this.timestamp = x.timestamp - this.startTimestamp;
+        this.startTimestamp = new Date();
+        this.subscription = this.timerSource.subscribe(payload => {
+            this.duration = moment.duration(payload.timestamp - this.startTimestamp.getTime());
         });
 
     }
 
-    onStop(): void {
+    stopTimer(): void {
         this.subscription.unsubscribe();
+    }
+
+    getFormattedTime(): string {
+
+        return `${this.addLeadingZero(this.duration.hours())}:${this.addLeadingZero(this.duration.minutes())}:${this.addLeadingZero(this.duration.seconds())}`;
+
+    }
+
+    addLeadingZero(num: number): string {
+
+        return num < 10 ? `0${num}` : `${num}`;
+
     }
 
 };

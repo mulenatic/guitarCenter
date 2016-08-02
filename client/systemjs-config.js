@@ -4,6 +4,7 @@ System.config({
     map: {
 	"app": "app",
 	"rxjs" : "node_modules/rxjs",
+	"moment": "node_modules/moment",
 
 	"@angular/core": "node_modules/@angular/core",
 	"@angular/common": "node_modules/@angular/common",
@@ -15,6 +16,7 @@ System.config({
     packages: {
 	"app": {main: "main.ts", defaultExtension: "ts"},
 	"rxjs" : {main: "index.js"},
+	"moment": {main: "min/moment.min.js", defaultExtension: "js"},
 
 	"@angular/core": {main: "index.js"},
 	"@angular/common": {main: "index.js"},
