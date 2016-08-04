@@ -16,5 +16,9 @@ export class BookFormComponent {
         this.bookBuilder = new BookBuilder();
     }
 
+    saveBook() {
+        this.book = this.bookBuilder.build();
+    }
+
 
 }

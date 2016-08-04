@@ -11,7 +11,8 @@ System.config({
 	"@angular/compiler": "node_modules/@angular/compiler",
 	"@angular/router": "node_modules/@angular/router",
 	"@angular/platform-browser": "node_modules/@angular/platform-browser",
-	"@angular/platform-browser-dynamic": "node_modules/@angular/platform-browser-dynamic"
+	"@angular/platform-browser-dynamic": "node_modules/@angular/platform-browser-dynamic",
+	"@angular/forms": "node_modules/@angular/forms"
     },
     packages: {
 	"app": {main: "main.ts", defaultExtension: "ts"},
@@ -23,6 +24,7 @@ System.config({
 	"@angular/compiler": {main: "index.js"},
 	"@angular/router": {main: "index.js"},
 	"@angular/platform-browser": {main: "index.js"},
-	"@angular/platform-browser-dynamic": {main: "index.js"}
+	"@angular/platform-browser-dynamic": {main: "index.js"},
+	"@angular/forms": {main: "index.js"}
     }
 });

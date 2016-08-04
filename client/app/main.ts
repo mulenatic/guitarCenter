@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {disableDeprecatedForms, provideForms} from "@angular/forms";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {NavbarComponent} from "./components/navbar/navbar";
 import {TabComponent} from "./components/TabComponent/TabComponent";
@@ -14,4 +15,4 @@ import {TabService} "./services/TabService/TabService";
 })
 export class AppComponent { };
 
-bootstrap(AppComponent, [TabService]);
+bootstrap(AppComponent, [disableDeprecatedForms(), provideForms(), TabService]);
