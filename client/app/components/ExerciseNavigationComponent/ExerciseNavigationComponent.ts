@@ -4,8 +4,7 @@ import {TabService} from "../../services/TabService/TabService";
 
 @Component({
     selector: "exerciseNavigationComponent",
-    templateUrl: "components/ExerciseNavigationComponent/ExerciseNavigationComponent.html",
-    providers: [TabService]
+    templateUrl: "components/ExerciseNavigationComponent/ExerciseNavigationComponent.html"
 
 })
 export class ExerciseNavigationComponent {

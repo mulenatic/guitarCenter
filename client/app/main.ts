@@ -4,6 +4,8 @@ import {NavbarComponent} from "./components/navbar/navbar";
 import {TabComponent} from "./components/TabComponent/TabComponent";
 import {MetroTimerComponent} from "./components/MetroTimerComponent/MetroTimerComponent";
 
+import {TabService} "./services/TabService/TabService";
+
 @Component({
     selector: "app",
     templateUrl: "app/main.html",
@@ -11,4 +13,4 @@ import {MetroTimerComponent} from "./components/MetroTimerComponent/MetroTimerCo
 })
 export class AppComponent { };
 
-bootstrap(AppComponent);
+bootstrap(AppComponent, [TabService]);

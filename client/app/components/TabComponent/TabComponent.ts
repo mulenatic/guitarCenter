@@ -8,8 +8,7 @@ import {Subscription} from "rxjs/Subscription";
 @Component({
     selector: "tabComponent",
     templateUrl: "components/TabComponent/TabComponent.html",
-    directives: [VexTabComponent],
-    providers: [TabService]
+    directives: [VexTabComponent]
 })
 export class TabComponent {
 
