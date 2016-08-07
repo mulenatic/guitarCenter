@@ -2,7 +2,7 @@ import {Component, trigger, state, style, transition, animate, Input} from "@ang
 
 @Component({
     selector: "metronomeDot",
-    templateUrl: "../../../app/components/MetronomeDot/MetronomeDot.html",
+    templateUrl: "components/exerciseArea/MetronomeDot.html",
     animations: [
         trigger("activeState", [
             state("inactive", style({

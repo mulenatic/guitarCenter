@@ -1,13 +1,17 @@
 import {Component, OnInit, OnDestroy} from "@angular/core";
-import {TabService} from "../../services/TabService/TabService";
-import {VexTabComponent} from "../../components/VexTabComponent/VexTabComponent";
-import {Exercise} from "../../domain/Exercise/Exercise";
 
 import {Subscription} from "rxjs/Subscription";
 
+import {TabService} from "../../services/TabService/TabService";
+import {VexTabComponent} from "../../components/exerciseArea/VexTabComponent";
+
+import {Exercise} from "../../domain/Exercise/Exercise";
+
+
+
 @Component({
     selector: "tabComponent",
-    templateUrl: "components/TabComponent/TabComponent.html",
+    templateUrl: "components/exerciseArea/TabComponent.html",
     directives: [VexTabComponent]
 })
 export class TabComponent {

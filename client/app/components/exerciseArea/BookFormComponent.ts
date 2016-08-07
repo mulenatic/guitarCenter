@@ -5,7 +5,7 @@ import {BookBuilder} from "../../domain/Book/BookBuilder";
 
 @Component({
     selector: "bookForm",
-    templateUrl: "app/components/BookFormComponent/BookFormComponent.html"
+    templateUrl: "app/components/exerciseArea/BookFormComponent.html"
 })
 export class BookFormComponent {
 

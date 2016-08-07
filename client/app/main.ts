@@ -4,11 +4,11 @@ import {bootstrap} from "@angular/platform-browser-dynamic";
 import { ROUTER_DIRECTIVES } from "@angular/router";
 
 import {NavbarComponent} from "./components/navbar/navbar";
-import {TabComponent} from "./components/TabComponent/TabComponent";
-import {MetroTimerComponent} from "./components/MetroTimerComponent/MetroTimerComponent";
-import {BookFormComponent} from "./components/BookFormComponent/BookFormComponent";
+import {TabComponent} from "./components/exerciseArea/TabComponent";
+import {MetroTimerComponent} from "./components/exerciseArea/MetroTimerComponent";
+import {BookFormComponent} from "./components/exerciseArea/BookFormComponent";
 
-import {TabService} "./services/TabService/TabService";
+import {TabService} from "./services/TabService/TabService";
 
 @Component({
     selector: "app",
