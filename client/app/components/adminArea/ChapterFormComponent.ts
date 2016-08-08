@@ -32,7 +32,11 @@ export class ChapterFormComponent implements OnChanges {
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
         this.chapterBuilder = new ChapterBuilder();
         let currentValue = changes["chapterInput"].currentValue;
-        this.chapterBuilder.title = currentValue != undefined ? currentValue.title : null;
+        if (currentValue != undefined) {
+            this.chapterBuilder.title = currentValue.title;
+            this.chapterBuilder.id = currentValue.id;
+        }
+
     }
 
 

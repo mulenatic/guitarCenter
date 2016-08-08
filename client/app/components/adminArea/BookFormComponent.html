@@ -18,7 +18,7 @@
 	    </div>
 
 	    <ul class="list-group">
-		<li class="list-group-item" *ngFor="let chapter of bookBuilder.chapters" (click)="setCurrentChapter(chapter); openChapterForm();">{{chapter.title}}</li>
+		<li class="list-group-item" *ngFor="let chapter of bookBuilder.chapters" (click)="openChapterForm(chapter);">{{chapter.title}}</li>
 		<li class="list-group-item" (click)="openChapterForm()">Create new chapter</li>
 	    </ul>
 

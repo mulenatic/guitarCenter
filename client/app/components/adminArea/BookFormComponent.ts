@@ -27,20 +27,26 @@ export class BookFormComponent {
         this.book = this.bookBuilder.build();
     }
 
-    openChapterForm() {
+    openChapterForm(chapter?: Chapter) {
+        this.currentChapter = chapter;
         this.isChapterEditorVisible = true;
     }
 
     newChapterHandler(chapter: Chapter) {
 
-        this.bookBuilder.chapters.push(chapter);
+        if (chapter.id === undefined) {
+            chapter = new Chapter(chapter.title, this.bookBuilder.chapters.length, chapter.exercises);
+            this.bookBuilder.chapters.push(chapter);
+        } else {
+            let index = this.bookBuilder.chapters.map(ch => ch.id).indexOf(chapter.id);
+            this.bookBuilder.chapters[index] = chapter;
+        }
+
+
         this.isChapterEditorVisible = false;
 
     }
 
-    setCurrentChapter(chapter: Chapter): void {
-        this.currentChapter = chapter;
-    }
 
 
 }
