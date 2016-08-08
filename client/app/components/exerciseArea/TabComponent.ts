@@ -3,11 +3,9 @@ import {Component, OnInit, OnDestroy} from "@angular/core";
 import {Subscription} from "rxjs/Subscription";
 
 import {TabService} from "../../services/TabService/TabService";
-import {VexTabComponent} from "../../components/exerciseArea/VexTabComponent";
+import {VexTabComponent} from "../../components/common/VexTabComponent";
 
 import {Exercise} from "../../domain/Exercise/Exercise";
-
-
 
 @Component({
     selector: "tabComponent",

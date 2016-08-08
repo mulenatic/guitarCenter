@@ -5,7 +5,7 @@ import { ROUTER_DIRECTIVES } from "@angular/router";
 
 import {TabComponent} from "./components/exerciseArea/TabComponent";
 import {MetroTimerComponent} from "./components/exerciseArea/MetroTimerComponent";
-import {BookFormComponent} from "./components/exerciseArea/BookFormComponent";
+import {BookFormComponent} from "./components/adminArea/BookFormComponent";
 
 import {TabService} from "./services/TabService/TabService";
 

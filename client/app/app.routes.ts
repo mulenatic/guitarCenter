@@ -1,7 +1,7 @@
 import {provideRouter, RouterConfig} from "@angular/router";
 
 import {TabComponent} from "./components/exerciseArea/TabComponent";
-import {BookFormComponent} from "./components/exerciseArea/BookFormComponent";
+import {BookFormComponent} from "./components/adminArea/BookFormComponent";
 
 const routes: RouterConfig = [
     { path: "exercise", component: TabComponent },
