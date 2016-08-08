@@ -16,6 +16,7 @@ export class BookFormComponent {
 
     book: Book;
     bookBuilder: BookBuilder;
+    currentChapter: Chapter;
     isChapterEditorVisible: boolean = false;
 
     constructor(private _router: Router) {
@@ -26,7 +27,7 @@ export class BookFormComponent {
         this.book = this.bookBuilder.build();
     }
 
-    createNewChapter() {
+    openChapterForm() {
         this.isChapterEditorVisible = true;
     }
 
@@ -35,6 +36,10 @@ export class BookFormComponent {
         this.bookBuilder.chapters.push(chapter);
         this.isChapterEditorVisible = false;
 
+    }
+
+    setCurrentChapter(chapter: Chapter): void {
+        this.currentChapter = chapter;
     }
 
 

@@ -18,8 +18,8 @@
 	    </div>
 
 	    <ul class="list-group">
-		<li class="list-group-item" *ngFor="let chapter of bookBuilder.chapters">{{chapter.title}}</li>
-		<li class="list-group-item" (click)="createNewChapter()">Create new chapter</li>
+		<li class="list-group-item" *ngFor="let chapter of bookBuilder.chapters" (click)="setCurrentChapter(chapter); openChapterForm();">{{chapter.title}}</li>
+		<li class="list-group-item" (click)="openChapterForm()">Create new chapter</li>
 	    </ul>
 
 	    <button type="submit" class="btn btn-primary" [disabled]="!bookForm.form.valid">Save</button>
@@ -27,7 +27,7 @@
 	</form>
 
 	<br/>
-	<chapterFormComponent *ngIf="isChapterEditorVisible" (new-chapter)="newChapterHandler($event)"></chapterFormComponent>
+	<chapterFormComponent *ngIf="isChapterEditorVisible" [chapter]="currentChapter" (new-chapter)="newChapterHandler($event)"></chapterFormComponent>
 	
     </div>
 </div>

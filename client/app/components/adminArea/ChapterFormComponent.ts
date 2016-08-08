@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from "@angular/core";
+import {Component, Input, Output, EventEmitter, OnChanges, SimpleChange} from "@angular/core";
 import {Router} from "@angular/router";
 
 import {Chapter} from "../../domain/Chapter/Chapter";
@@ -8,12 +8,12 @@ import {ChapterBuilder} from "../../domain/Chapter/ChapterBuilder";
     selector: "chapterFormComponent",
     templateUrl: "components/adminArea/ChapterFormComponent.html"
 })
-export class ChapterFormComponent {
+export class ChapterFormComponent implements OnChanges {
+
+    @Input("chapter") chapterInput: Chapter;
 
     @Output("new-chapter")
     saveEventEmitter: EventEmitter<Chapter> = new EventEmitter<Chapter>();
-
-    private _chapter: Chapter;
 
     chapterBuilder: ChapterBuilder;
 
@@ -23,10 +23,16 @@ export class ChapterFormComponent {
 
     saveChapter() {
 
-        this._chapter = this.chapterBuilder.build();
+        let chapter = this.chapterBuilder.build();
 
-        this.saveEventEmitter.emit(this._chapter);
+        this.saveEventEmitter.emit(chapter);
 
+    }
+
+    ngOnChanges(changes: { [propName: string]: SimpleChange }) {
+        this.chapterBuilder = new ChapterBuilder();
+        let currentValue = changes["chapterInput"].currentValue;
+        this.chapterBuilder.title = currentValue != undefined ? currentValue.title : null;
     }
 
 
