@@ -17,21 +17,17 @@
 		<input type="text" class="form-control" [(ngModel)]="bookBuilder.description" name="description">
 	    </div>
 
+	    <ul class="list-group">
+		<li class="list-group-item" *ngFor="let chapter of bookBuilder.chapters">{{chapter.title}}</li>
+		<li class="list-group-item" (click)="createNewChapter()">Create new chapter</li>
+	    </ul>
+
 	    <button type="submit" class="btn btn-primary" [disabled]="!bookForm.form.valid">Save</button>
 
 	</form>
 
-	<!-- Only for development, can be removed later on -->
-	<div class="well">
-	    <dl>
-		<dt>Book:</dt>
-		<dd>{{book | json}}</dd>
-
-		<dt>BookBuilder:</dt>
-		<dd>{{bookBuilder | json}}</dd>
-
-	    </dl>
-	</div>
+	<br/>
+	<chapterFormComponent *ngIf="isChapterEditorVisible" (new-chapter)="newChapterHandler($event)"></chapterFormComponent>
 	
     </div>
 </div>
