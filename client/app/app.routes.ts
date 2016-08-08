@@ -1,7 +1,12 @@
 import {provideRouter, RouterConfig} from "@angular/router";
 
+import {TabComponent} from "./components/exerciseArea/TabComponent";
+import {BookFormComponent} from "./components/exerciseArea/BookFormComponent";
+
 const routes: RouterConfig = [
-    { path: "", component: }
+    { path: "exercise", component: TabComponent },
+    { path: "book", component: BookFormComponent },
+    { path: "", redirectTo: "/exercise", pathMatch: "full" }
 ];
 
 export const appRouterProviders = [
