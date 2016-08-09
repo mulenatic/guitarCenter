@@ -21,7 +21,7 @@
 	    </ol>
 
 	    <br/>
-	    <exercise-form *ngIf="isExerciseFormVisible"></exercise-form>
+	    <exercise-form *ngIf="isExerciseFormVisible" [exercise]="currentExercise"></exercise-form>
 
 	    <button type="submit" class="btn btn-primary" [disabled]="!chapterForm.form.valid">{{chapterBuilder.id != undefined ? "Update" : "Add"}}</button>
 	    
