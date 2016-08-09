@@ -4,9 +4,12 @@ import {Router} from "@angular/router";
 import {Chapter} from "../../domain/Chapter/Chapter";
 import {ChapterBuilder} from "../../domain/Chapter/ChapterBuilder";
 
+import {ExerciseFormComponent} from "./ExerciseForm.Component";
+
 @Component({
     selector: "chapterFormComponent",
-    templateUrl: "components/adminArea/ChapterFormComponent.html"
+    templateUrl: "components/adminArea/ChapterFormComponent.html",
+    directives: [ExerciseFormComponent]
 })
 export class ChapterFormComponent implements OnChanges {
 
@@ -16,6 +19,8 @@ export class ChapterFormComponent implements OnChanges {
     saveEventEmitter: EventEmitter<Chapter> = new EventEmitter<Chapter>();
 
     chapterBuilder: ChapterBuilder;
+
+    isExerciseFormVisible: boolean = false;
 
     constructor(private _router: Router) {
         this.chapterBuilder = new ChapterBuilder();
@@ -37,6 +42,10 @@ export class ChapterFormComponent implements OnChanges {
             this.chapterBuilder.id = currentValue.id;
         }
 
+    }
+
+    exerciseClicked(): void {
+        this.isExerciseFormVisible = true;
     }
 
 
