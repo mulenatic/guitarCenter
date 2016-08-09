@@ -1,10 +1,10 @@
 import {provideRouter, RouterConfig} from "@angular/router";
 
-import {TabComponent} from "./components/exerciseArea/TabComponent";
 import {adminRoutes} from "./components/adminArea/admin.routes";
+import {exerciseRoutes} from "./components/exerciseArea/exercise.routes";
 
 const routes: RouterConfig = [
-    { path: "exercise", component: TabComponent },
+    ...exerciseRoutes,
     ...adminRoutes,
     { path: "", redirectTo: "/exercise", pathMatch: "full" }
 ];
