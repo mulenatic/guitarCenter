@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Book Creation</div>
+    <div class="panel-heading">Book Information</div>
     <div class="panel-body">
 	<form (ngSubmit)="saveBook()" #bookForm="ngForm">
 	    <div class="form-group">
@@ -17,17 +17,19 @@
 		<input type="text" class="form-control" [(ngModel)]="bookBuilder.description" name="description">
 	    </div>
 
+	    <hr/>
+
+	    <h4>Chapters:</h4>
 	    <ul class="list-group">
-		<li class="list-group-item" *ngFor="let chapter of bookBuilder.chapters" (click)="openChapterForm(chapter);">{{chapter.title}}</li>
-		<li class="list-group-item" (click)="openChapterForm()">Create new chapter</li>
+		<li class="list-group-item" *ngFor="let chapter of bookBuilder.chapters" (click)="openChapterForm(chapter);"><span class="badge">{{chapter.exercises.length}}</span>{{chapter.title}}</li>
+		<li class="list-group-item" (click)="openChapterForm()"><em>Create new chapter...</em></li>
 	    </ul>
+
+	    <chapterFormComponent *ngIf="isChapterEditorVisible" [chapter]="currentChapter" (new-chapter)="newChapterHandler($event)"></chapterFormComponent>
 
 	    <button type="submit" class="btn btn-primary" [disabled]="!bookForm.form.valid">Save</button>
 
 	</form>
 
-	<br/>
-	<chapterFormComponent *ngIf="isChapterEditorVisible" [chapter]="currentChapter" (new-chapter)="newChapterHandler($event)"></chapterFormComponent>
-	
     </div>
 </div>

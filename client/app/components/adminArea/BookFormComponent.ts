@@ -35,7 +35,7 @@ export class BookFormComponent {
     newChapterHandler(chapter: Chapter) {
 
         if (chapter.id === undefined) {
-            chapter = new Chapter(chapter.title, this.bookBuilder.chapters.length, chapter.exercises);
+            chapter = new Chapter(this.bookBuilder.chapters.length, chapter.title, chapter.description, chapter.exercises);
             this.bookBuilder.chapters.push(chapter);
         } else {
             let index = this.bookBuilder.chapters.map(ch => ch.id).indexOf(chapter.id);

@@ -1,13 +1,19 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Book Creation</div>
+    <div class="panel-heading">Chapter Information</div>
     <div class="panel-body">
 	<form #chapterForm="ngForm" (ngSubmit)="saveChapter()">
+
 	    <div class="form-group">
 		<label for="title">Title</label>
-		<input type="text" [(ngModel)]="chapterBuilder.title" name="title" required/>
+		<input type="text" class="form-control" [(ngModel)]="chapterBuilder.title" name="title" required/>
 	    </div>
 
-	    <button type="submit" class="btn btn-primary" [disabled]="!chapterForm.form.valid">Add</button>
+	    <div class="form-group">
+		<label for="description">Description</label>
+		<input type="text" class="form-control" [(ngModel)]="chapterBuilder.description" name="description"/>
+	    </div>
+
+	    <button type="submit" class="btn btn-primary" [disabled]="!chapterForm.form.valid">{{chapterBuilder.id != undefined ? "Update" : "Add"}}</button>
 	    
 	</form>
     </div>
