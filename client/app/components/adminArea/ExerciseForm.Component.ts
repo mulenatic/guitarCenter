@@ -17,6 +17,9 @@ export class ExerciseFormComponent implements OnChanges {
     @Output("save-exercise")
     saveExerciseEventEmitter: EventEmitter<Exercise> = new EventEmitter<Exercise>();
 
+    @Output("cancel-exercise")
+    cancelExerciseEventEmitter: EventEmitter<void> = new EventEmitter<void>();
+
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
         let currentValue = changes["exerciseInput"].currentValue;
@@ -34,6 +37,10 @@ export class ExerciseFormComponent implements OnChanges {
 
         this.saveExerciseEventEmitter.emit(exercise);
 
+    }
+
+    cancelExercise() {
+        this.cancelExerciseEventEmitter.emit(null);
     }
 
 }
