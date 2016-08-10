@@ -2,10 +2,10 @@ import {Chapter} from "../Chapter/Chapter";
 
 export class Book {
 
-    constructor(private _title: string, private _author: string, private _description: string, private _chapters: Array<Chapter>) {
-        if (_chapters === undefined) {
-            this._chapters = new Array<Chapter>();
-        }
+    constructor(private _id: number, private _title: string, private _author: string, private _description: string, private _chapters: Array<Chapter>) { }
+
+    get id(): number {
+        return this._id;
     }
 
     get title(): string {
