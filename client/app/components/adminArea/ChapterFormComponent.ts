@@ -71,6 +71,9 @@ export class ChapterFormComponent implements OnChanges {
 
     }
 
+    cancelExerciseHandler(): void {
+        this.isExerciseFormVisible = false;
+    }
 
 
 }
