@@ -9,7 +9,7 @@ import {ExerciseFormComponent} from "./ExerciseForm.Component";
 
 @Component({
     selector: "chapterFormComponent",
-    templateUrl: "featureAreas/adminArea/ChapterFormComponent.html",
+    templateUrl: "featureAreas/adminArea/ChapterForm.Component.html",
     directives: [ExerciseFormComponent]
 })
 export class ChapterFormComponent implements OnChanges {

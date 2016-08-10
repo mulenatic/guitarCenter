@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 
-import {TabComponent} from "./TabComponent";
-import {MetroTimerComponent} from "./MetroTimerComponent";
+import {TabComponent} from "./Tab.Component";
+import {MetroTimerComponent} from "./MetroTimer.Component";
 
 @Component({
     selector: "exerciseMain",

@@ -5,11 +5,11 @@ import {Book} from "../../domain/Book/Book";
 import {BookBuilder} from "../../domain/Book/BookBuilder";
 import {Chapter} from "../../domain/Chapter/Chapter";
 
-import {ChapterFormComponent} from "./ChapterFormComponent";
+import {ChapterFormComponent} from "./ChapterForm.Component";
 
 @Component({
     selector: "bookForm",
-    templateUrl: "app/featureAreas/adminArea/BookFormComponent.html",
+    templateUrl: "app/featureAreas/adminArea/BookForm.Component.html",
     directives: [ChapterFormComponent]
 })
 export class BookFormComponent {

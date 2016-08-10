@@ -3,10 +3,6 @@ import {disableDeprecatedForms, provideForms} from "@angular/forms";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import { ROUTER_DIRECTIVES } from "@angular/router";
 
-import {TabComponent} from "./featureAreas/exerciseArea/TabComponent";
-import {MetroTimerComponent} from "./featureAreas/exerciseArea/MetroTimerComponent";
-import {BookFormComponent} from "./featureAreas/adminArea/BookFormComponent";
-
 import {TabService} from "./services/TabService/TabService";
 
 import {appRouterProviders} from "./app.routes";
@@ -14,7 +10,7 @@ import {appRouterProviders} from "./app.routes";
 @Component({
     selector: "app",
     templateUrl: "app/main.html",
-    directives: [TabComponent, MetroTimerComponent, BookFormComponent, ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent { };
 
