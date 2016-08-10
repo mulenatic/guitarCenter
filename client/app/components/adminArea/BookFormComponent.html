@@ -25,7 +25,7 @@
 		<li class="list-group-item" (click)="openChapterForm()"><em>Create new chapter...</em></li>
 	    </ul>
 
-	    <chapterFormComponent *ngIf="isChapterEditorVisible" [chapter]="currentChapter" (save-chapter)="saveChapterHandler($event)"></chapterFormComponent>
+	    <chapterFormComponent *ngIf="isChapterEditorVisible" [chapter]="currentChapter" (save-chapter)="saveChapterHandler($event)" (cancel-chapter)="cancelChapterHandler()"></chapterFormComponent>
 
 	    <button type="submit" class="btn btn-primary" [disabled]="!bookForm.form.valid">Save</button>
 

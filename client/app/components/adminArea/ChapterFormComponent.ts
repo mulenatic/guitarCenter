@@ -19,6 +19,9 @@ export class ChapterFormComponent implements OnChanges {
     @Output("save-chapter")
     saveChapterEventEmitter: EventEmitter<Chapter> = new EventEmitter<Chapter>();
 
+    @Output("cancel-chapter")
+    cancelChapterEventEmitter: EventEmitter<void> = new EventEmitter<void>();
+
     chapterBuilder: ChapterBuilder;
 
     currentExercise: Exercise;
@@ -34,6 +37,10 @@ export class ChapterFormComponent implements OnChanges {
 
         this.saveChapterEventEmitter.emit(chapter);
 
+    }
+
+    cancelChapter() {
+        this.cancelChapterEventEmitter.emit(null);
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
@@ -63,5 +70,7 @@ export class ChapterFormComponent implements OnChanges {
         this.isExerciseFormVisible = false;
 
     }
+
+
 
 }

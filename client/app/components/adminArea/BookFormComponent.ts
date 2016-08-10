@@ -47,6 +47,10 @@ export class BookFormComponent {
 
     }
 
+    cancelChapterHandler(): void {
+        this.isChapterEditorVisible = false;
+    }
+
 
 
 }
