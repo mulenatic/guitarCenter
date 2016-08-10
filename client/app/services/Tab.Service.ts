@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Observable} from "rxjs/Observable";
 
-import {Exercise} from "../../domain/Exercise/Exercise";
+import {Exercise} from "../domain/Exercise/Exercise";
 
 export class TabService {
 

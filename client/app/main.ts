@@ -3,7 +3,7 @@ import {disableDeprecatedForms, provideForms} from "@angular/forms";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import { ROUTER_DIRECTIVES } from "@angular/router";
 
-import {TabService} from "./services/TabService/TabService";
+import {TabService} from "./services/Tab.Service";
 
 import {appRouterProviders} from "./app.routes";
 

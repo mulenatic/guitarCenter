@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 
-import {TabService} from "../../services/TabService/TabService";
+import {TabService} from "../../services/Tab.Service";
 
 @Component({
     selector: "exerciseNavigationComponent",

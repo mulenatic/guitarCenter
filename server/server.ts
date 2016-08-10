@@ -5,6 +5,7 @@ let app = express();
 
 app.use("/", express.static(path.join(__dirname, "..", "client")));
 app.use("/featureAreas", express.static(path.join(__dirname, "..", "client", "app", "featureAreas")));
+app.use("/domain", express.static(path.join(__dirname, "..", "client", "app", "domain")));
 app.use("/node_modules", express.static(path.join(__dirname, "..", "node_modules")));
 
 const server = app.listen(8000, "localhost", () => {

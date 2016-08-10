@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy} from "@angular/core";
 
 import {Subscription} from "rxjs/Subscription";
 
-import {TabService} from "../../services/TabService/TabService";
+import {TabService} from "../../services/Tab.Service";
 import {VexTabComponent} from "../common/VexTab.Component";
 
 import {Exercise} from "../../domain/Exercise/Exercise";
