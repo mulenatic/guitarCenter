@@ -7,24 +7,27 @@ import {Chapter} from "../../domain/Chapter/Chapter";
 
 import {ChapterFormComponent} from "./ChapterForm.Component";
 
+import {BookService} from "../../services/Book.Service";
+
 @Component({
     selector: "bookForm",
     templateUrl: "app/featureAreas/adminArea/BookForm.Component.html",
-    directives: [ChapterFormComponent]
+    directives: [ChapterFormComponent],
+    providers: [BookService]
 })
 export class BookFormComponent {
 
-    book: Book;
     bookBuilder: BookBuilder;
     currentChapter: Chapter;
     isChapterEditorVisible: boolean = false;
 
-    constructor(private _router: Router) {
+    constructor(private _router: Router, private _bookService: BookService) {
         this.bookBuilder = new BookBuilder();
     }
 
     saveBook() {
-        this.book = this.bookBuilder.build();
+        let book = this._bookService.saveBook(this.bookBuilder.build());
+        this.bookBuilder = BookBuilder.fromBook(book);
     }
 
     openChapterForm(chapter?: Chapter) {

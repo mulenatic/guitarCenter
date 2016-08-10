@@ -8,7 +8,7 @@ export class BookService {
         books = books != null ? books : new Array<Book>();
 
         if (book.id != undefined) {
-            let index = books.map(b => b.id).indexOf(book.id);
+            let index = books.map(b => b._id).indexOf(book.id);
             books[index] = book;
         } else {
             book = new Book(books.length, book.title, book.author, book.description, book.chapters);
