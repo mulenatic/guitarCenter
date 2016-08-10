@@ -12,4 +12,8 @@ export class ChapterBuilder {
         return chapter;
     }
 
+    static fromChapter(chapter: Chapter) {
+        return new ChapterBuilder(chapter.id, chapter.title, chapter.description, chapter.exercises);
+    }
+
 }

@@ -17,11 +17,12 @@
 
 	    <h5>Exercises:</h5>
 	    <ol class="list-group">
-		<li class="list-group-item" (click)="exerciseClicked()"><em>Create new exercise</em></li>
+		<li class="list-group-item" *ngFor="let exercise of chapterBuilder.exercises" (click)="openExerciseForm(exercise)">{{exercise.title}}</li>
+		<li class="list-group-item" (click)="openExerciseForm()"><em>Create new exercise</em></li>
 	    </ol>
 
 	    <br/>
-	    <exercise-form *ngIf="isExerciseFormVisible" [exercise]="currentExercise"></exercise-form>
+	    <exercise-form *ngIf="isExerciseFormVisible" [exercise]="currentExercise" (save-exercise)="saveExerciseHandler($event)"></exercise-form>
 
 	    <button type="submit" class="btn btn-primary" [disabled]="!chapterForm.form.valid">{{chapterBuilder.id != undefined ? "Update" : "Add"}}</button>
 	    

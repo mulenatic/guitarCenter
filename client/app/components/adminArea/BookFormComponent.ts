@@ -32,7 +32,7 @@ export class BookFormComponent {
         this.isChapterEditorVisible = true;
     }
 
-    newChapterHandler(chapter: Chapter) {
+    saveChapterHandler(chapter: Chapter) {
 
         if (chapter.id === undefined) {
             chapter = new Chapter(this.bookBuilder.chapters.length, chapter.title, chapter.description, chapter.exercises);

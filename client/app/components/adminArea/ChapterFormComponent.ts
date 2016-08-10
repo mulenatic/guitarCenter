@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 
 import {Chapter} from "../../domain/Chapter/Chapter";
 import {ChapterBuilder} from "../../domain/Chapter/ChapterBuilder";
+import {Exercise} from "../../domain/Exercise/Exercise";
 
 import {ExerciseFormComponent} from "./ExerciseForm.Component";
 
@@ -15,11 +16,12 @@ export class ChapterFormComponent implements OnChanges {
 
     @Input("chapter") chapterInput: Chapter;
 
-    @Output("new-chapter")
-    saveEventEmitter: EventEmitter<Chapter> = new EventEmitter<Chapter>();
+    @Output("save-chapter")
+    saveChapterEventEmitter: EventEmitter<Chapter> = new EventEmitter<Chapter>();
 
     chapterBuilder: ChapterBuilder;
 
+    currentExercise: Exercise;
     isExerciseFormVisible: boolean = false;
 
     constructor(private _router: Router) {
@@ -30,23 +32,36 @@ export class ChapterFormComponent implements OnChanges {
 
         let chapter = this.chapterBuilder.build();
 
-        this.saveEventEmitter.emit(chapter);
+        this.saveChapterEventEmitter.emit(chapter);
 
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
         this.chapterBuilder = new ChapterBuilder();
-        let currentValue = changes["chapterInput"].currentValue;
-        if (currentValue != undefined) {
-            this.chapterBuilder.title = currentValue.title;
-            this.chapterBuilder.id = currentValue.id;
+        let chapterInput = changes["chapterInput"].currentValue;
+        if (chapterInput != undefined) {
+            this.chapterBuilder = ChapterBuilder.fromChapter(chapterInput);
         }
 
     }
 
-    exerciseClicked(): void {
+    openExerciseForm(exercise?: Exercise) {
+        this.currentExercise = exercise;
         this.isExerciseFormVisible = true;
     }
 
+    saveExerciseHandler(exercise: Exercise): void {
+
+        if (exercise.id === undefined) {
+            exercise = new Exercise(this.chapterBuilder.exercises.length, exercise.title, exercise.description, exercise.lines);
+            this.chapterBuilder.exercises.push(exercise);
+        } else {
+            let index = this.chapterBuilder.exercises.map(e => e.id).indexOf(exercise.id);
+            this.chapterBuilder.exercises[index] = exercise;
+        }
+
+        this.isExerciseFormVisible = false;
+
+    }
 
 }

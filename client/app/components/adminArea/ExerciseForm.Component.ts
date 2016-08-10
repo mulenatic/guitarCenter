@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChange} from "@angular/core";
+import {Component, Input, OnChanges, SimpleChange, Output, EventEmitter} from "@angular/core";
 
 import {Exercise} from "../../domain/Exercise/Exercise";
 import {ExerciseBuilder} from "../../domain/Exercise/ExerciseBuilder";
@@ -14,6 +14,9 @@ export class ExerciseFormComponent implements OnChanges {
     @Input("exercise")
     exerciseInput: Exercise;
 
+    @Output("save-exercise")
+    saveExerciseEventEmitter: EventEmitter<Exercise> = new EventEmitter<Exercise>();
+
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
         let currentValue = changes["exerciseInput"].currentValue;
@@ -22,6 +25,14 @@ export class ExerciseFormComponent implements OnChanges {
         } else {
             this.exerciseBuilder = new ExerciseBuilder();
         }
+
+    }
+
+    saveExercise() {
+
+        let exercise = this.exerciseBuilder.build();
+
+        this.saveExerciseEventEmitter.emit(exercise);
 
     }
 
