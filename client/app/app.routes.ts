@@ -1,7 +1,7 @@
 import {provideRouter, RouterConfig} from "@angular/router";
 
-import {adminRoutes} from "./components/adminArea/admin.routes";
-import {exerciseRoutes} from "./components/exerciseArea/exercise.routes";
+import {adminRoutes} from "./featureAreas/adminArea/admin.routes";
+import {exerciseRoutes} from "./featureAreas/exerciseArea/exercise.routes";
 
 const routes: RouterConfig = [
     ...exerciseRoutes,

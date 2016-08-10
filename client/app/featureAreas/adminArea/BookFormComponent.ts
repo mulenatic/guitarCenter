@@ -9,7 +9,7 @@ import {ChapterFormComponent} from "./ChapterFormComponent";
 
 @Component({
     selector: "bookForm",
-    templateUrl: "app/components/adminArea/BookFormComponent.html",
+    templateUrl: "app/featureAreas/adminArea/BookFormComponent.html",
     directives: [ChapterFormComponent]
 })
 export class BookFormComponent {

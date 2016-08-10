@@ -5,7 +5,7 @@ import {ExerciseBuilder} from "../../domain/Exercise/ExerciseBuilder";
 
 @Component({
     selector: "exercise-form",
-    templateUrl: "components/adminArea/ExerciseForm.Component.html"
+    templateUrl: "featureAreas/adminArea/ExerciseForm.Component.html"
 })
 export class ExerciseFormComponent implements OnChanges {
 

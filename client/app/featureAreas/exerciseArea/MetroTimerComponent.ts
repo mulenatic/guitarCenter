@@ -7,12 +7,12 @@ import "rxjs/add/operator/timestamp";
 
 import * as moment from "moment";
 
-import {ExerciseNavigationComponent} from "../../components/exerciseArea/ExerciseNavigationComponent";
-import {MetronomeDot} from "../../components/exerciseArea/MetronomeDot";
+import {ExerciseNavigationComponent} from "../../featureAreas/exerciseArea/ExerciseNavigationComponent";
+import {MetronomeDot} from "../../featureAreas/exerciseArea/MetronomeDot";
 
 @Component({
     selector: "metroTimerComponent",
-    templateUrl: "app/components/exerciseArea/MetroTimerComponent.html",
+    templateUrl: "app/featureAreas/exerciseArea/MetroTimerComponent.html",
     directives: [ExerciseNavigationComponent, MetronomeDot]
 })
 export class MetroTimerComponent implements OnInit {

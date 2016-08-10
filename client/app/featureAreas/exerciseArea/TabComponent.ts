@@ -3,13 +3,13 @@ import {Component, OnInit, OnDestroy} from "@angular/core";
 import {Subscription} from "rxjs/Subscription";
 
 import {TabService} from "../../services/TabService/TabService";
-import {VexTabComponent} from "../../components/common/VexTabComponent";
+import {VexTabComponent} from "../../featureAreas/common/VexTabComponent";
 
 import {Exercise} from "../../domain/Exercise/Exercise";
 
 @Component({
     selector: "tabComponent",
-    templateUrl: "components/exerciseArea/TabComponent.html",
+    templateUrl: "featureAreas/exerciseArea/TabComponent.html",
     directives: [VexTabComponent]
 })
 export class TabComponent {

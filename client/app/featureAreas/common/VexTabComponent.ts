@@ -4,7 +4,7 @@ import {VexTab, Artist, Flow} from "node_modules/vextab/releases/vextab-div.js";
 
 @Component({
     selector: "vexTabComponent",
-    templateUrl: "components/common/VexTabComponent.html"
+    templateUrl: "featureAreas/common/VexTabComponent.html"
 })
 export class VexTabComponent implements OnInit {
 
