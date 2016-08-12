@@ -12,8 +12,7 @@ import {BookService} from "../../services/Book.Service";
 @Component({
     selector: "bookForm",
     templateUrl: "app/featureAreas/adminArea/BookForm.Component.html",
-    directives: [ChapterFormComponent],
-    providers: [BookService]
+    directives: [ChapterFormComponent]
 })
 export class BookFormComponent {
 
