@@ -24,4 +24,8 @@ export class Book {
         return this._chapters;
     }
 
+    getChapterCount(): number {
+        return this._chapters != undefined ? this._chapters.length : 0;
+    }
+
 }
