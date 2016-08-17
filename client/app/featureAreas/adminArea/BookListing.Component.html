@@ -1,1 +1,14 @@
-<h1>Hallo</h1>
+<div class="panel">
+    <div class="panel-heading">
+	Book Listing
+    </div>
+    
+    <div class="panel-body">
+
+	<div class="list-group">
+	    <button class="button" class="list-group-item" *ngFor="let book of books">{{book._title}}</button>
+	</div>
+
+    </div>
+
+</div>

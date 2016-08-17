@@ -21,4 +21,9 @@ export class BookService {
 
     }
 
+    getBooks(): Array<Book> {
+	let books: Array<Book> = JSON.parse(localStorage.getItem("books"));
+	return books;
+    }
+
 }
