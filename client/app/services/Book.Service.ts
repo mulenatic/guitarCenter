@@ -33,5 +33,15 @@ export class BookService {
         return books;
     }
 
+    getBook(id: number): Book {
+
+        let books = this.getBooks();
+
+        let result: Book = books.filter(book => book.id === id)[0];
+
+        return result;
+
+    }
+
 
 }
