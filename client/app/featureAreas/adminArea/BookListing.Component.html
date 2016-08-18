@@ -6,10 +6,10 @@
     <div class="panel-body">
 
 	<div class="list-group">
-	    <div href="#" class="button" class="list-group-item" *ngFor="let book of books">
+	    <a href="#" class="list-group-item" *ngFor="let book of books">
 		<h4 class="list-group-item-heading">{{book._title}} <span class="badge">{{book.getChapterCount()}}</span></h4>
 		<p class="list-group-item-text">{{book._description}}</p>
-	    </div>
+	    </a>
 	</div>
 
     </div>
