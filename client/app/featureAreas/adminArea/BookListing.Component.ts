@@ -1,11 +1,13 @@
 import {Component} from "@angular/core";
+import {ROUTER_DIRECTIVES} from "@angular/router";
 
 import {Book} from "../../domain/Book/Book";
 import {BookService} from "../../services/Book.Service";
 
 @Component({
     selector: "book-listing",
-    templateUrl: "featureAreas/adminArea/BookListing.Component.html"
+    templateUrl: "featureAreas/adminArea/BookListing.Component.html",
+    directives: [ROUTER_DIRECTIVES]
 })
 export class BookListingComponent {
 
