@@ -7,5 +7,5 @@ import {BookListingComponent} from "./BookListing.Component";
 export const adminRoutes: RouterConfig = [
     { path: "createBook", component: BookFormComponent },
     { path: "bookList", component: BookListingComponent },
-    { path: "book", component: BookDetails }
+    { path: "book/:id", component: BookDetails }
 ];
