@@ -2,9 +2,12 @@ import {Component, Input} from "@angular/core";
 
 import {Chapter} from "../../domain/Chapter/Chapter";
 
+import {ExerciseDetails} from "./ExerciseDetails.Component";
+
 @Component({
     selector: "chapter-details",
-    templateUrl: "../../featureAreas/adminArea/ChapterDetails.Component.html"
+    templateUrl: "../../featureAreas/adminArea/ChapterDetails.Component.html",
+    directives: [ExerciseDetails]
 })
 export class ChapterDetails {
 
