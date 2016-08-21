@@ -12,4 +12,8 @@ export class ExerciseBuilder {
         return new ExerciseBuilder(exercise.id, exercise.title, exercise.description, exercise.lines);
     }
 
+    static fromParsedJSON(parsedJSON: any): Exercise {
+        return new Exercise(parsedJSON._id, parsedJSON._title, parsedJSON._description, parsedJSON._lines);
+    }
+
 }

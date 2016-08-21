@@ -3,10 +3,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 import {BookService} from "../../services/Book.Service";
 import {Book} from "../../domain/Book/Book";
+import {ChapterDetails} from "./ChapterDetails.Compoment";
 
 @Component({
     selector: "book-details",
-    templateUrl: "../../featureAreas/adminArea/BookDetails.Component.html"
+    templateUrl: "../../featureAreas/adminArea/BookDetails.Component.html",
+    directives: [ChapterDetails]
 })
 export class BookDetails implements OnInit {
 

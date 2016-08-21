@@ -26,10 +26,7 @@ export class BookService {
 
         let parsedBooks: Array<any> = JSON.parse(localStorage.getItem("books"));
 
-        let books: Array<Book> = parsedBooks.map(pB => {
-            let bookBuilder: BookBuilder = new BookBuilder(pB._id, pB._title, pB._author, pB._description, pB._chapters);
-            return bookBuilder.build();
-        });
+        let books: Array<Book> = parsedBooks.map(pB => BookBuilder.fromParseJSON(pB));
         return books;
     }
 

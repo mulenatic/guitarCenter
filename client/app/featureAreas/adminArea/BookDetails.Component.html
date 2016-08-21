@@ -6,5 +6,10 @@
 	    <dt>Author</dt><dd>{{book.author}}</dd>
 	    <dt>Description</dt><dd>{{book.description}}</dd>
 	</dl>
+	<ul class="list-group">
+	    <li class="list-group-item" *ngFor="let chapter of book.chapters">
+		<chapter-details [chapter]="chapter"></chapter-details>
+	    </li>
+	</ul>
     </div>
 </div>
